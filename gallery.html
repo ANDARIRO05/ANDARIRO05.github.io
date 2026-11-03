@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Ángel Rosas</title>
+<meta name="description" content="A collection of projects, each one built with care, precision, and a point of view.">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,340;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="gallery">
+
+<header class="topbar" id="shell-topbar"></header>
+<nav class="topbar-menu" id="shell-topbar-menu"></nav>
+
+<div class="shell">
+  <aside class="sidebar" id="shell-sidebar"></aside>
+
+  <main class="main">
+    <div class="room">
+      <div class="room-head">
+        <div>
+          <p class="eyebrow">Collection</p>
+          <h2>Gallery</h2>
+          <p class="desc">A collection of projects, each one built with care, precision, and a point of view.</p>
+        </div>
+        <!-- Filter buttons rendered by js/gallery.js (initGalleryGrid) -->
+        <div class="filters" id="filterBar"></div>
+      </div>
+
+      <!-- Project cards rendered by js/gallery.js (initGalleryGrid),
+           reading from the PROJECTS array in js/gallery.js -->
+      <div class="grid" id="galleryGrid"></div>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

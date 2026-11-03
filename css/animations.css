@@ -1,0 +1,34 @@
+/* ============================================================
+   ANIMATIONS
+   The entire motion language of the site in one place:
+   a single fade + rise used on page load, and the handful of
+   hover/transition effects components rely on are declared
+   alongside those components. Nothing here bounces, spins,
+   or scales aggressively — motion should feel architectural,
+   not technological.
+   ============================================================ */
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Used by js/animations.js when cross-fading the hero artwork
+   between projects. */
+.fade-swap {
+  transition: opacity .6s var(--ease);
+}
+
+/* The quiet "Take a seat" hint that appears over the bench. */
+@keyframes hintIn {
+  from { opacity: 0; transform: translate(-50%, calc(-100% + 6px)); }
+  to   { opacity: 1; transform: translate(-50%, calc(-100% - 4px)); }
+}
+
+/* Respect user motion preferences everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

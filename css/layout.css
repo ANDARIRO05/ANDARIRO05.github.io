@@ -1,0 +1,136 @@
+/* ============================================================
+   LAYOUT
+   The museum "shell": a fixed left sidebar plus a scrolling
+   main column. Every page shares this structure — the sidebar
+   and mobile topbar markup are injected by js/navigation.js so
+   they only have to be defined once (see partials in that file).
+   ============================================================ */
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar (desktop) ---------- */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 0 30px 44px;
+  border-right: 1px solid var(--concrete-line);
+  background: var(--warm-white);
+  z-index: 100;
+}
+
+/* The "AR" monogram: an outlined SVG (assets/icons/logo-ar.svg) inside a
+   link home. The box keeps the exact height the old 22px text line had,
+   so nothing around it moves. */
+.logo {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 33px;
+  transition: opacity .3s var(--ease);
+}
+.logo:hover { opacity: 0.6; }
+.logo img { display: block; height: 15.6px; width: auto; }
+
+.sidebar nav {
+  margin-top: 76px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.03em;
+  padding-right: 20px;
+  line-height: 1.6;
+}
+
+/* ---------- Mobile top bar ---------- */
+.topbar {
+  display: none;
+}
+
+/* Hidden by default (and out of flow) on every breakpoint; the
+   media query below turns it into a slide-down panel only once
+   the sidebar itself is hidden. Without this base rule the panel
+   would render inline in normal document flow on desktop, pushing
+   the rest of the page down by its own height. */
+.topbar-menu {
+  display: none;
+}
+
+/* ---------- Main content column ---------- */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+/* Every page's content sits inside a .room, which supplies the
+   generous museum-style padding described in the design brief. */
+.room {
+  padding: 56px 64px 90px;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   RESPONSIVE — layout shell
+   ============================================================ */
+/* Tablets, phones, and phones held sideways (short screens) all get the
+   top bar: a 232px sidebar would eat too much of the width or height. */
+@media (max-width: 900px), (max-height: 500px) and (max-width: 1000px) {
+  :root { --topbar-h: 64px; }
+
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--topbar-h);
+    padding: 0 22px;
+    border-bottom: 1px solid var(--concrete-line);
+    position: sticky;
+    top: 0;
+    background: var(--warm-white);
+    z-index: 100;
+  }
+  .topbar .logo { height: 28px; }
+  .topbar .logo img { height: 13.5px; }
+
+  .topbar-toggle {
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .topbar-menu {
+    position: fixed;
+    inset: 0;
+    top: var(--topbar-h);
+    background: var(--warm-white);
+    padding: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 99;
+  }
+  .topbar-menu.open { display: flex; }
+
+  .main { margin-left: 0; }
+  .room { padding: 34px 22px 70px; }
+}

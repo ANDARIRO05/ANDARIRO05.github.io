@@ -1,0 +1,47 @@
+/* ============================================================
+   DESIGN TOKENS
+   Every color, type, spacing and motion value the template
+   uses is defined here. Change the experience by editing
+   this file — the rest of the CSS just consumes it.
+   ============================================================ */
+
+:root {
+  /* ---- Core palette ---- */
+  --warm-white: #F7F5F2;
+  --concrete: #EFEDE9;
+  --concrete-line: #E3E0DA;
+  --violet: #5C4BDB;
+  --violet-soft: rgba(92, 75, 219, 0.08);
+  --ink: #1D1D1D;
+  --ink-soft: #666666;
+  --ink-faint: #9C9994;
+  --paper: #FFFFFF;
+
+  /* ---- Project accent colors ----
+     Each project in the collection is assigned one of these.
+     Add more pairs here if the collection grows. */
+  --emerald: #1E5B45;
+  --emerald-soft: #EAF1EC;
+  --amber: #8A5A20;
+  --amber-soft: #F5EFE3;
+  --deepblue: #1F3556;
+  --deepblue-soft: #EAEEF4;
+  --purple: #4B2E83;
+  --purple-soft: #EFEAF6;
+  --pine: #0F6B5C;
+  --pine-soft: #E4F1EE;
+  --walnut: #5B3A1A;
+  --walnut-soft: #F2EBE3;
+
+  /* ---- Typography ---- */
+  --serif: 'Fraunces', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 520ms;
+
+  /* ---- Layout ---- */
+  --sidebar-w: 232px;
+  --topbar-h: 0px;   /* becomes 64px when the mobile top bar replaces the sidebar */
+}

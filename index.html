@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ángel Rosas — Gallery</title>
+<meta name="description" content="A curated collection of software projects where engineering, design, and craftsmanship meet.">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,340;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="home">
+
+<header class="topbar" id="shell-topbar"></header>
+<nav class="topbar-menu" id="shell-topbar-menu"></nav>
+
+<div class="shell">
+  <aside class="sidebar" id="shell-sidebar"></aside>
+
+  <main class="main">
+    <!--
+      HERO — two scenes, one room
+      ---------------------------------------------------------
+      1. ENTRANCE  (data-view="entrance")
+         The museum photo (assets/images/hero-scene.jpg) with the
+         introduction on top. Click the bench — or wait ~10 seconds —
+         to take a seat.
+
+      2. SEATED    (data-view="seated")
+         A point of view from the bench, looking at the painting
+         (assets/images/pov-scene.jpg). The project is described on
+         the wall like in a museum: wall lettering on the left, an
+         object label on the right. If the visitor does not click,
+         the tour moves to the next painting every few seconds and
+         loops forever. A click pins the current painting so it can
+         be read; another click resumes the tour.
+
+      Timing, states and content: js/hero-tour.js
+      Geometry (aligning the artwork, bench and labels with the
+      photos at any window size): js/hero-scene.js
+    -->
+    <section class="hero-scene" id="heroScene" data-view="entrance">
+
+      <!-- ============ 1. ENTRANCE ============ -->
+      <div class="hero-layer hero-layer--entrance" id="layerEntrance">
+        <img
+          class="hero-scene__image"
+          id="heroSceneImage"
+          src="assets/images/hero-scene.jpg"
+          alt="A minimalist museum gallery room with a large abstract painting hung on the wall, a bench, and soft track lighting."
+        >
+
+        <div class="hero-scene__scrim hero-scene__scrim--left" aria-hidden="true"></div>
+        <div class="hero-scene__scrim hero-scene__scrim--right" aria-hidden="true"></div>
+        <div class="hero-scene__scrim hero-scene__scrim--bottom" aria-hidden="true"></div>
+
+        <!-- Sits exactly over the canvas in the photo (js/hero-scene.js). -->
+        <div class="hero-scene__artwork" id="heroArtwork"></div>
+
+        <!-- Invisible hit area shaped like the bench. -->
+        <button class="bench-seat" id="benchSeat" type="button" aria-label="Take a seat in front of the painting"></button>
+        <span class="bench-hint" id="benchHint" aria-hidden="true">Take a seat</span>
+
+        <div class="hero-scene__content">
+          <div class="hero-left">
+            <p class="eyebrow">Welcome to my</p>
+            <h1>Gallery<span class="dot-accent">.</span></h1>
+            <p>A curated collection of software projects where engineering, design, and craftsmanship meet.</p>
+            <a class="btn-min" href="gallery.html">View all projects →</a>
+          </div>
+
+          <div class="hero-right" id="heroInfo"></div>
+        </div>
+      </div>
+
+      <!-- ============ 2. SEATED (point of view) ============ -->
+      <div class="hero-layer hero-layer--pov" id="layerPov" aria-hidden="true">
+        <img
+          class="pov-image"
+          id="povImage"
+          src="assets/images/pov-scene.jpg"
+          alt=""
+        >
+        <div class="pov-shade" aria-hidden="true"></div>
+
+        <div class="hero-scene__artwork pov-artwork" id="povArtwork"></div>
+
+        <!-- Wall lettering (left) and object label (right). In "docked"
+             mode (small windows) js/hero-scene.js stops anchoring them
+             to the wall and CSS lays them out along the bottom. -->
+        <div class="pov-captions">
+          <div class="pov-vinyl" id="povVinyl"></div>
+          <aside class="pov-label" id="povLabel" aria-live="polite"></aside>
+        </div>
+
+        <button class="pov-stand" id="standUp" type="button">↑ Stand up</button>
+      </div>
+
+      <!-- Shared by both scenes -->
+      <div class="room-indicator">
+        <span id="roomLabelCurrent">01</span>
+        <div class="dots-track" id="heroDots"></div>
+        <span id="roomLabelTotal">04</span>
+        <span class="tour-state" id="tourState" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

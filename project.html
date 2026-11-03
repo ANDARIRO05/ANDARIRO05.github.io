@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — Ángel Rosas</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,340;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="project">
+
+<header class="topbar" id="shell-topbar"></header>
+<nav class="topbar-menu" id="shell-topbar-menu"></nav>
+
+<div class="shell">
+  <aside class="sidebar" id="shell-sidebar"></aside>
+
+  <main class="main">
+    <!--
+      This entire room is rendered by js/gallery.js (initProjectDetail),
+      based on the ?id=<project-id> query parameter, e.g.
+      project.html?id=moneymind — see the PROJECTS array in
+      js/gallery.js for available ids and their fields.
+    -->
+    <div class="room" id="projectRoom"></div>
+  </main>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

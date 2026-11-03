@@ -1,0 +1,36 @@
+/* ============================================================
+   TYPOGRAPHY
+   Two families: an editorial serif (Fraunces) for display
+   moments, and a quiet grotesque (Inter) for interface text.
+   Loaded via Google Fonts in the <head> of every page — see
+   assets/fonts/README.md if you'd rather self-host them.
+   ============================================================ */
+
+body {
+  font-family: var(--sans);
+  background: var(--warm-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Small uppercase label used above headings throughout the site
+   (e.g. "Welcome to my", "Biography", "Room 03"). */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Generic secondary paragraph copy. */
+.text-soft {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}

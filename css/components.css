@@ -1,0 +1,58 @@
+/* ============================================================
+   COMPONENTS
+   Small, reusable pieces used on more than one page: sidebar
+   navigation links, the minimal text button, and the mobile
+   menu items. Page-specific "artworks" (cards, mockups,
+   plaques, etc.) live in pages.css since each only appears
+   in one place.
+   ============================================================ */
+
+/* ---------- Sidebar / mobile nav item ---------- */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color .35s var(--ease);
+  width: fit-content;
+}
+.nav-item:hover { color: var(--ink); }
+
+.nav-item .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--violet);
+  opacity: 0;
+  transform: scale(0);
+  transition: all .35s var(--ease);
+  flex-shrink: 0;
+}
+
+.nav-item.active { color: var(--ink); }
+.nav-item.active .dot { opacity: 1; transform: scale(1); }
+
+/* ---------- Minimal text button (used for "View project →" etc.) ---------- */
+.btn-min {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease), gap .3s var(--ease);
+}
+.btn-min:hover { border-color: var(--violet); gap: 12px; }
+
+/* ---------- Page entrance fade ----------
+   Applied to <main> on load. Kept intentionally subtle —
+   see css/animations.css for the keyframe definition. */
+.main {
+  animation: pageIn var(--dur) var(--ease) both;
+}
